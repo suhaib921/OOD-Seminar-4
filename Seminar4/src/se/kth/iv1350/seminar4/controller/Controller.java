@@ -11,6 +11,13 @@ import se.kth.iv1350.seminar4.modell.Receipt;
 import se.kth.iv1350.seminar4.modell.Sale;
 
 
+import java.sql.SQLException;
+import se.kth.iv1350.seminar4.util.ErrorLogger;
+import se.kth.iv1350.seminar4.util.Logger;
+
+
+
+
 
 
 /**
@@ -24,6 +31,7 @@ public class Controller {
     private InventorySystem invSys;
     private Printer printer;
     private Sale sale;
+    private Logger logger;
     
 
     // Data transfer objects
@@ -33,13 +41,14 @@ public class Controller {
 
 
     /**
-     * Creates a new instance, initializing all external system handlers.
+     * Creates a new instance, initializing all external system handlers and the logger.
      */
     public Controller() {
         accSys = new AccountingSystem();
         discountReg = new DiscountRegister();
         invSys = new InventorySystem();
         printer = new Printer();
+        logger = new ErrorLogger();
     }
 
     /**
@@ -56,14 +65,26 @@ public class Controller {
      * @param itemID The identifier of the item to add.
      * @param quantity The quantity of the item.
      * @return The ItemDTO of the added item.
+     * @throws NoSuchItemFoundException If the item is not found in the inventory.
+     * @throws DatabaseFailureException If there is a simulated database failure.
      */
-    public ItemDTO scanItem(int itemID, int quantity) { // the quantity becomes issue here 
+    public ItemDTO scanItem(int itemID, int quantity) throws NoSuchItemFoundException, DatabaseFailureException {
+    { 
         ItemDTO itemDTO = sale.itemAlreadyInSale(itemID);
-        if (itemDTO == null) {
-            itemDTO = invSys.fetchIteminfo(itemID);
+        if (itemDTO != null) {
+           sale.addItem(itemDTO, quantity);
+           return itemDTO;
         }
-        sale.addItem(itemDTO, quantity);
-        return itemDTO;
+        try {
+            itemDTO = invSys.fetchIteminfo(itemID);
+            sale.addItem(itemDTO, quantity);
+            return itemDTO;
+        } catch (SQLException exc) {
+            logger.logError("Access to database server for inventory failed while searching for item: " + itemID, exc);
+            throw new DatabaseFailureException("ERROR: Connection to the inventory server has failed");
+        }
+        }
+        
     }
 
      /**

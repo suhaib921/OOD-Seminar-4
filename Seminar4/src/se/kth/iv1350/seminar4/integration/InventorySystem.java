@@ -8,6 +8,9 @@ import java.util.Map;
 import se.kth.iv1350.seminar4.dto.ItemDTO;
 import se.kth.iv1350.seminar4.dto.SaleDTO;
 
+import java.sql.SQLException;
+
+
 public class InventorySystem {
     
     private List<ItemDTO> items = new ArrayList<>();
