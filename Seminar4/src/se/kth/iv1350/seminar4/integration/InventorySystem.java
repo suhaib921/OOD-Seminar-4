@@ -45,7 +45,7 @@ public class InventorySystem {
      * @param itemID The ID of the item to fetch.
      * @return The ItemDTO if found, otherwise null.
      */
-    public ItemDTO fetchIteminfo(int itemID){
+    public ItemDTO fetchIteminfo(int itemID)throws SQLException{
         for(ItemDTO item : items){
             if(item.getItemID() == itemID){
                 return item; // Return a copy to prevent external modification

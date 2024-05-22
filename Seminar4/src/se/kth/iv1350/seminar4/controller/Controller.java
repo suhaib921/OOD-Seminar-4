@@ -72,11 +72,15 @@ public class Controller {
     { 
         ItemDTO itemDTO = sale.itemAlreadyInSale(itemID);
         if (itemDTO != null) {
-           sale.addItem(itemDTO, quantity);
+           sale.increaseItemQuantity(itemDTO, quantity);
            return itemDTO;
         }
         try {
-            itemDTO = invSys.fetchIteminfo(itemID);
+            itemDTO = invSys.fetchIteminfo(itemID); // inventory needs exceptions
+           if(itemDTO!=null)
+           {
+                throw new NoSuchItemFoundException("" + itemID);
+           }
             sale.addItem(itemDTO, quantity);
             return itemDTO;
         } catch (SQLException exc) {
