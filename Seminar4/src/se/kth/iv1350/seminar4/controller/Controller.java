@@ -69,7 +69,7 @@ public class Controller {
      * @throws DatabaseFailureException If there is a simulated database failure.
      */
     public ItemDTO scanItem(int itemID, int quantity) throws NoSuchItemFoundException, DatabaseFailureException {
-    { 
+    
         ItemDTO itemDTO = sale.itemAlreadyInSale(itemID);
         if (itemDTO != null) {
            sale.increaseItemQuantity(itemDTO, quantity);
@@ -87,7 +87,7 @@ public class Controller {
             logger.logError("Access to database server for inventory failed while searching for item: " + itemID, exc);
             throw new DatabaseFailureException("ERROR: Connection to the inventory server has failed");
         }
-        }
+        
         
     }
 
