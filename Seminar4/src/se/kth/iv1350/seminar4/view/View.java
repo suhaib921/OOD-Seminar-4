@@ -28,7 +28,7 @@ public class View {
 
  /**
      * Simulates a user adding items, requesting discounts, and making a payment.
-     */
+ */
     public void runFakeExecution() {
         System.out.println("Starting a new sale...");
 

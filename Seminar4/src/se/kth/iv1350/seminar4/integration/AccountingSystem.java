@@ -1,10 +1,16 @@
 package se.kth.iv1350.seminar4.integration;
 
 import se.kth.iv1350.seminar4.dto.SaleDTO;
-
+/**
+ * This class represents the external accounting system. 
+ * It is responsible for updating the accounting records with new sales data.
+ */
 public class AccountingSystem {
 
-
+    /**
+     * Creates an instance of the AccountingSystem. 
+     * Currently, it does not perform any initialization tasks.
+     */
     public AccountingSystem(){
 
 

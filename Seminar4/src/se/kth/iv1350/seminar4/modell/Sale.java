@@ -1,12 +1,13 @@
 package se.kth.iv1350.seminar4.modell;
 
+import java.util.ArrayList;
 import java.util.Random;
-
 import se.kth.iv1350.seminar4.dto.ItemDTO;
 
-import java.util.ArrayList;
-
-
+/**
+ * Represents a sale transaction. Manages items purchased in a sale,
+ * calculates the running total price, and generates a unique sale ID.
+ */
 public class Sale {
     private ArrayList<ItemDTO> purchased;
     private double runningCurrentTotalPrice;
@@ -54,6 +55,17 @@ public class Sale {
     public void addItem(ItemDTO itemDTO, int quantity) {
         purchased.add(itemDTO);
         itemDTO.setQuantity(quantity);
+        updateTotalPrice();
+    }
+
+    /**
+     * Increases the quantity of an existing item in the purchased list.
+     * 
+     * @param itemDTO The item to update.
+     * @param quantity The quantity to add.
+     */
+    public void increaseItemQuantity(ItemDTO itemDTO, int quantity) {
+        itemDTO.setQuantity(itemDTO.getQuantity() + quantity);
         updateTotalPrice();
     }
 

@@ -1,12 +1,15 @@
 package se.kth.iv1350.seminar4.modell;
 
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-
 import se.kth.iv1350.seminar4.dto.ItemDTO;
 
-import java.text.DecimalFormat;
+/**
+ * Represents a receipt for a sale. It contains details about the sale,
+ * including the time of the receipt, items purchased, and payment information.
+ */
 
 public class Receipt {
     private LocalDateTime timeOfReceipt; // Stores the exact time the receipt is generated

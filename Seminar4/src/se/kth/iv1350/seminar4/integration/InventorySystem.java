@@ -4,17 +4,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import se.kth.iv1350.seminar4.dto.ItemDTO;
 import se.kth.iv1350.seminar4.dto.SaleDTO;
-
 import java.sql.SQLException;
 
 
+
+/**
+ * This class represents the external inventory system.
+ * It is responsible for managing inventory items and updating their quantities based on sales.
+ */
 public class InventorySystem {
     
     private List<ItemDTO> items = new ArrayList<>();
 
+    /**
+     * Creates an instance of the InventorySystem.
+     * Initializes the inventory with a predefined set of items.
+     */
     public InventorySystem(){
         this.items = new ArrayList<>();
         addItemsToStore();
@@ -45,7 +52,7 @@ public class InventorySystem {
      * @param itemID The ID of the item to fetch.
      * @return The ItemDTO if found, otherwise null.
      */
-    public ItemDTO fetchIteminfo(int itemID){
+    public ItemDTO fetchIteminfo(int itemID)throws SQLException{
         for(ItemDTO item : items){
             if(item.getItemID() == itemID){
                 return item; // Return a copy to prevent external modification

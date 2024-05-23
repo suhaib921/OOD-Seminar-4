@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import se.kth.iv1350.seminar4.dto.ItemDTO;
 import se.kth.iv1350.seminar4.dto.SaleDTO;
 
@@ -19,6 +18,10 @@ public class DiscountRegister {
     private Map<Integer, Double> itemsDiscounts; // Maps itemID to percentage discount
     private List<DiscountLevel> discountLevels; // Holds discount levels based on total price
 
+    /**
+     * Creates an instance of DiscountRegister.
+     * Initializes the discount data for items, customers, and discount levels.
+     */
     public DiscountRegister() {
         itemsDiscounts = new HashMap<>();
         customerDiscounts = new HashMap<>();
