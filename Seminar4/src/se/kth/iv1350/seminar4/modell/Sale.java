@@ -53,7 +53,16 @@ public class Sale {
      * @param quantity The quantity of the item.
      */
     public void addItem(ItemDTO itemDTO, int quantity) {
-        purchased.add(itemDTO);
+        purchased.add(itemDTO); // We don't need to add the itemDTO again in to the purchased list, just increase quantity.
+        increaseItemQuantity(itemDTO, quantity);
+    }
+
+    /**
+     * Adds a specified quantity of a new item to the purchased list.
+     * @param itemDTO The item to add or update.
+     * @param quantity The quantity of the item.
+     */
+    public void increaseItemQuantity(ItemDTO itemDTO, int quantity) {
         itemDTO.setQuantity(quantity);
         updateTotalPrice();
     }
