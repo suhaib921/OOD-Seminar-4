@@ -9,6 +9,12 @@ import se.kth.iv1350.seminar4.integration.Printer;
 import se.kth.iv1350.seminar4.modell.Payment;
 import se.kth.iv1350.seminar4.modell.Receipt;
 import se.kth.iv1350.seminar4.modell.Sale;
+import se.kth.iv1350.seminar4.integration.DatabaseServerNotRunningException;
+import se.kth.iv1350.seminar4.integration.NoSuchItemFoundException;
+import se.kth.iv1350.seminar4.modell.SaleObserver;
+import se.kth.iv1350.seminar4.modell.SaleLog;
+import java.util.ArrayList;
+
 
 
 import java.sql.SQLException;
@@ -32,6 +38,9 @@ public class Controller {
     private Printer printer;
     private Sale sale;
     private Logger logger;
+    private SaleLog saleLog;
+    private ArrayList<SaleObserver> saleObservers = new ArrayList<>();
+
     
 
     // Data transfer objects
@@ -49,6 +58,7 @@ public class Controller {
         invSys = new InventorySystem();
         printer = new Printer();
         logger = new ErrorLogger();
+        //saleLog= new 
     }
 
     /**
@@ -68,7 +78,7 @@ public class Controller {
      * @throws NoSuchItemFoundException If the item is not found in the inventory.
      * @throws DatabaseException If there is a simulated database failure.
      */
-    public ItemDTO scanItem(int itemID, int quantity) throws NoSuchItemFoundException, DatabaseException {
+    public ItemDTO scanItem(int itemID, int quantity) throws NoSuchItemFoundException, DatabaseServerNotRunningException{
     
         ItemDTO itemDTO = sale.itemAlreadyInSale(itemID);
         if (itemDTO != null) {
@@ -90,15 +100,7 @@ public class Controller {
         
     }
 
-     /**
-     * Overloaded method to handle scanning an item with a default quantity of one.
-     *
-     * @param itemID The identifier of the item to add.
-     * @return The ItemDTO of the added item.
-     */
-    public ItemDTO scanItem(int itemID) {
-        return scanItem(itemID, 1);
-    }
+  
     /**
      * Ends the current sale process.
      * @return The calculated total price including tax.
@@ -131,6 +133,8 @@ public class Controller {
         return discountReg.fetchDiscountFromRegister(customerId, saleDTO, totalPrice);
     }
 
+
+
      /**
      * Updates external systems with the details of the current sale.
      * Sends sale information to the inventory and accounting systems for processing.
@@ -138,6 +142,14 @@ public class Controller {
     private void updateExternalSystems(SaleDTO saleDTO) {
         invSys.sendSaleInfo(saleDTO);
         accSys.sendSaleInfo(saleDTO);
+    }
+
+    /**
+     * Passes a <code>SaleObserver</code> through addObserver method of saleLog 
+     * @param observer the observer that gets added
+     */
+    public void addSaleObserver(SaleObserver observer) {
+        saleLog.addObserver(observer);
     }
 
     

@@ -15,8 +15,9 @@ public class TotalRevenueView implements SaleObserver {
      * @param recentTotalPrice The total price of the recent sale.
      * @param totalRevenue The cumulative total revenue since the program started.
      */
-    private void printTotalRevenue(double recentTotalPrice, double totalRevenue) {
-        StringBuilder revenueReport = new StringBuilder();
+    @Override
+    public void totalRevenue(double recentTotalPrice, double totalRevenue) {
+      StringBuilder revenueReport = new StringBuilder();
         revenueReport.append("************ ANOTHER VIEW ************\n")
                       .append("Recent sale income: ").append(DECIMAL_FORMAT.format(recentTotalPrice)).append("\n")
                       .append("The current total revenue is: ").append(DECIMAL_FORMAT.format(totalRevenue)).append("\n")

@@ -10,6 +10,9 @@ import se.kth.iv1350.seminar4.modell.Payment;
 import se.kth.iv1350.seminar4.modell.Receipt;
 import se.kth.iv1350.seminar4.modell.Sale;
 import se.kth.iv1350.seminar4.startup.*;;
+import se.kth.iv1350.seminar4.view.TotalRevenueFileOutput;
+import se.kth.iv1350.seminar4.view.TotalRevenueView;
+
 /**
  * Simulates user/Casheir interactions.
  */
@@ -23,6 +26,9 @@ public class View {
     public View(Controller contr){
 
         this.contr = contr;
+        contr.addSaleObserver(new TotalRevenueFileOutput());
+        contr.addSaleObserver(new TotalRevenueView());
+        
     }
 
 
@@ -42,9 +48,7 @@ public class View {
         ItemDTO item2 = contr.scanItem(2, 3); // Adding 3 units of item with ID 2
         System.out.println("Added item: " + item2.getItemName() + ", quantity: " + item2.getQuantity());
 
-        ItemDTO item3 = contr.scanItem(3); // Adding item with ID 2
-        System.out.println("Added item: " + item3.getItemName() + ", quantity: " + item3.getQuantity());
-
+        
         
         // Simulate ending the sale
         contr.endSale();

@@ -15,6 +15,17 @@ public class ItemDTO {
         this.quantity = quantity;
     }
 
+    public ItemDTO(ItemDTO other) {
+        this.itemID = other.itemID;
+        this.itemName = other.itemName;
+        this.itemPrice = other.itemPrice;
+        this.itemVAT = other.itemVAT;
+        this.quantity = other.quantity;
+    }
+
+     
+    
+
     /** @return The unique identifier of the item. */
     public int getItemID() {
         return itemID;

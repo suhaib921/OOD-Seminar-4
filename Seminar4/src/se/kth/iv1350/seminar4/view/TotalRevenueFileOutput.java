@@ -34,8 +34,9 @@ public class TotalRevenueFileOutput implements SaleObserver {
      * @param recentTotalPrice The total price of the recent sale.
      * @param totalRevenue The cumulative total revenue pf all sales since program started.
      */
-    private void logTotalRevenue(double recentTotalPrice, double totalRevenue) {
-        String logEntry = String.format("Sale number %d: Total price of the sale number = %s, Current Total revenue = %s",
+    @Override
+    public void totalRevenue(double recentTotalPrice, double totalRevenue) {
+         String logEntry = String.format("Sale number %d: Total price of the sale number = %s, Current Total revenue = %s",
                 saleNumber, df.format(recentTotalPrice), df.format(totalRevenue));
         
         System.out.println(logEntry);
@@ -43,7 +44,7 @@ public class TotalRevenueFileOutput implements SaleObserver {
         saleNumber++;
     }
 
-    /**
+      /**
      * Closes the PrintWriter to release resources.
      */
     public void close() {

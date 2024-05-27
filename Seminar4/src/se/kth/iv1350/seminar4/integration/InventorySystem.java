@@ -55,7 +55,7 @@ public class InventorySystem {
     public ItemDTO fetchIteminfo(int itemID)throws SQLException{
         for(ItemDTO item : items){
             if(item.getItemID() == itemID){
-                return item; // Return a copy to prevent external modification
+                return new ItemDTO(item); // Return a copy to prevent external modification
             }
         }
         return null;

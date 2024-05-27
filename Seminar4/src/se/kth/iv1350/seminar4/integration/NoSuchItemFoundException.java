@@ -1,4 +1,4 @@
-package se.kth.iv1350.seminar4.controller;
+package se.kth.iv1350.seminar4.integration;
 /**
  * 
  * Exception for an invalid input of an item identifier.

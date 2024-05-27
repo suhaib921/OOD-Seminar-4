@@ -60,8 +60,13 @@ public class SaleLog {
         }    
     }
     
-    private void updateExternalSystems(){
-        invSys.sendSaleInformation(recentSale);
-        accSys.sendSaleInformation(recentSale);
+  
+      /**
+     * Updates external systems with the details of the current sale.
+     * Sends sale information to the inventory and accounting systems for processing.
+     */
+    private void updateExternalSystems() {
+        invSys.sendSaleInfo(recentSale);
+        accSys.sendSaleInfo(recentSale);
     }
 }
