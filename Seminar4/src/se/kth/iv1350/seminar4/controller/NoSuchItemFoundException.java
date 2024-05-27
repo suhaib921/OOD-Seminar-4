@@ -9,7 +9,7 @@ public class NoSuchItemFoundException extends Exception {
     /**
      * Creates an instance of NoSuchItemFoundException with a specific error message.
      * 
-     * @param message The error message describing the cause of the exception.
+     * @param message The error message describing the cause of the wrong.
      */
     public NoSuchItemFoundException(String message) {
         super(message);

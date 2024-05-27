@@ -101,3 +101,116 @@ A **logger** is a component used in software applications to record log messages
 ### Summary
 
 `SQLException` is a key class in Java's `java.sql` package for handling database-related errors. It provides detailed information about SQL errors and allows for structured error handling and resource management in applications that interact with databases.
+
+# chapter 7: Unit Testing using Junit
+
+
+# Föreläsning 12: Exception handling
+![alt text](image.png)[Source:https://data-flair.training/blogs/java-exception/]
+<br />
+
+<br />
+
+0. **Asynchronous vs. Synchronous**:
+Synchronous exceptions are predictable based on the code and the data being processed. If the same code is executed with the same data, the synchronous exception will occur at the same place every time.
+<br />Asynchronous exceptions are unpredictable in terms of timing because they depend on external factors or system states that can change independently of the program’s logic.
+1. ** Exceptions**:
+All exceptions must inherit java.lang.Exception (consult section 1.4 if you need to repeat
+inheritance). In doing that, a lot of useful functionality is inherited, for example handling an
+error message. The Exception class has both a constructor that takes a message, and a
+method getMessage that returns the message.
+<br />If the all custom exceptions are related is it good to create a abstraction that other can inheratic from.
+
+2. **checked Exceptions**:
+Checked exceptions are used for business logic errors. Such errors do not indicate that the
+program has crashed, but that a business rule was broken. An example is a withdraw method
+in a bank account. If a user tries to withdraw more money than the current balance of the
+account, the method might throw an exception to indicate that the withdrawal is not allowed.
+NoSuchItemfoundException is a checked exception.
+
+3. **Unchecked Exceptions**:
+Unchecked exceptions, on the other hand, are used for programming errors. A typical example is NullPointerException, which normally means that a method is called on an object that does not exist. This is an indication that there is a bug in the program.
+DatabaseException is an unchecked exception.
+
+4. **Abstraction level**:
+
+* Exceptions follow a hierarchy, with base classes for broader categories and derived classes for specific issues.
+* **DatabaseException** (base class) handles all database-related issues.
+* **DatabaseServerNotRunningException** (derived class) handles a specific database issue.
+
+**Exception Handling Best Practices**
+
+* **Immutable Objects:** Once created, their state cannot be changed, promoting data integrity.
+* **Never Ignore Exceptions:**  Always handle exceptions to prevent unexpected behavior.
+* **Logging Exceptions:** Use logging to record exception details for debugging purposes.
+* **User vs. Developer Information Needs:**
+    * Users: Need user-friendly error messages without technical details.
+    * Developers: Need detailed error messages for troubleshooting.
+
+**Importance of Correct Abstraction Levels**
+
+1. **Abstraction Level of Exceptions:**
+   - **Low-Level Exceptions:** These are detailed technical exceptions that occur in the lower layers of the application, such as the integration layer (e.g., database errors).
+   - **High-Level Exceptions:** These are more generic exceptions that are suitable for higher layers of the application, such as the business logic or user interface layers.
+
+2. **User-Friendly and Secure Error Handling:**
+   - **Not User-Friendly:** Displaying low-level, technical error messages directly to users is not user-friendly. For example, if a cash machine displayed "SQL syntax error" when a user tried to withdraw money, it would be confusing and alarming.
+   - **Security Risks:** Exposing detailed technical information about the system, such as database errors, can pose security risks. Potential attackers could exploit this information to find vulnerabilities.
+
+3. **Layer Independence:**
+   - **Dependency Issues:** If the view layer (user interface) handles low-level exceptions directly, it creates a dependency between the view and the integration layer, which is undesirable. Each layer should remain independent to maintain a clean architecture.
+
+### Example Scenario
+
+#### Incorrect Approach:
+- The integration layer throws a detailed `SQLException`(a specific low-level exception used when interacting with with a database using JDBC (Java Database Connectivity) to provide technical details about the database error).
+- This `SQLException` is caught directly in the view layer.
+- The view displays the detailed SQL error message to the user.
+
+#### Correct Approach:
+- The integration layer throws a detailed `SQLException`.
+- The business logic layer catches the `SQLException`.
+- The business logic layer then throws a more generic exception, such as `OperationFailedException`, which encapsulates the original `SQLException`.
+- The view layer catches the `OperationFailedException` and displays a user-friendly error message to the user, without exposing technical details.
+
+
+1. **Catching and Wrapping Exceptions:**
+   - In the business logic layer, the detailed `SQLException` is caught and logged. Use a SQLException in Java to handle errors related to the database even if those errors stem from the server side, such as connectivity issues, timeout exceptions, or database server failures.
+   - A more generic `OperationFailedException` is thrown, which includes the original `SQLException` as its cause.
+
+2. **Propagating Exceptions:**
+   - The `OperationFailedException` propagates to the view layer.
+   - The view layer catches the `OperationFailedException` and displays a generic, user-friendly error message.
+
+3. **Maintaining Abstraction Levels:**
+   - The detailed technical exception (`SQLException`) does not traverse up to the view layer.
+   - This maintains the independence of each layer and prevents exposing technical details to the user.
+
+
+why high level expection is a part of view?
+Say that a low-level layer (far from the view) throws some exception with a detailed technical
+description of an error condition. An example could be that the integration layer fails to per-
+form a database operation. Should this information be displayed to the user? Most certainly
+not. First, it is not user friendly at all. What would you think if a cash machine said “sql
+syntax error” when you tried to withdraw money? It would not be possible to know if the
+amount had been withdrawn from the bank account, and it would probably not feel safe to use
+that bank any more. Second, it could create security problems if detailed information about
+the database was displayed to all users, including possible attackers. Now that it has been
+established that this exception is not of interest to the user, the next question is if it then is of
+any interest to the view layer? Most likely not, since anyway it shall not be displayed to the
+user. Also, catching a database exception in the view creates a dependency from the view to
+the integration layer, which is not desired. The conclusion is that it is often inappropriate that
+an exception traverses many layers, and better to do as in listing 8.12, where the exception
+from the database call is caught, and a more generic exception is thrown instead.
+
+# Föreläsning 13: Polymorfism
+
+what is polymorfism and why interface?
+why the logger is an interface not just a class that can be extended?
+
+# Föreläsning 14: Design 
+
+# Föreläsning 15: Inherantice
+
+
+

@@ -18,6 +18,10 @@ import se.kth.iv1350.seminar4.view.View;
 
         Controller contr = new Controller ();
         View view =new View(contr);
+
         view.runFakeExecution();
+        view.runFakeExecution();
+        view.runFakeExecution();
+
     }
 }

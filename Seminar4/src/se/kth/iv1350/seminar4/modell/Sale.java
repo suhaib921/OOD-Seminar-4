@@ -8,10 +8,10 @@ import se.kth.iv1350.seminar4.dto.ItemDTO;
  * Represents a sale transaction. Manages items purchased in a sale,
  * calculates the running total price, and generates a unique sale ID.
  */
-public class Sale {
+public class Sale { // This makes sale unmutable
     private ArrayList<ItemDTO> purchased;
     private double runningCurrentTotalPrice;
-    private int saleID;
+    private final int saleID;
 
     /**
      * Constructs a Sale with a unique ID and initializes it.
@@ -61,17 +61,6 @@ public class Sale {
      * Adds a specified quantity of a new item to the purchased list.
      * @param itemDTO The item to add or update.
      * @param quantity The quantity of the item.
-     */
-    public void increaseItemQuantity(ItemDTO itemDTO, int quantity) {
-        itemDTO.setQuantity(quantity);
-        updateTotalPrice();
-    }
-
-    /**
-     * Increases the quantity of an existing item in the purchased list.
-     * 
-     * @param itemDTO The item to update.
-     * @param quantity The quantity to add.
      */
     public void increaseItemQuantity(ItemDTO itemDTO, int quantity) {
         itemDTO.setQuantity(itemDTO.getQuantity() + quantity);
