@@ -3,16 +3,10 @@ import se.kth.iv1350.seminar4.controller.Controller;
 import se.kth.iv1350.seminar4.view.View;
 
 /**
- * Kommentarer
+ * The main class is the entry start point for the entire program.
  */
 
  public class Main{
-
-    /**
-    * The main method is the entry point for the application
-    * 
-    *@param args 
-    */
 
     public static void main(String [] args){
 

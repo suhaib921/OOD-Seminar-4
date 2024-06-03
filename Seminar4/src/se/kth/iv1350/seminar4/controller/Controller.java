@@ -1,23 +1,20 @@
 package se.kth.iv1350.seminar4.controller;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import se.kth.iv1350.seminar4.dto.ItemDTO;
 import se.kth.iv1350.seminar4.dto.SaleDTO;
 import se.kth.iv1350.seminar4.integration.AccountingSystem;
+import se.kth.iv1350.seminar4.integration.DatabaseServerNotRunningException;
 import se.kth.iv1350.seminar4.integration.DiscountRegister;
 import se.kth.iv1350.seminar4.integration.InventorySystem;
+import se.kth.iv1350.seminar4.integration.NoSuchItemFoundException;
 import se.kth.iv1350.seminar4.integration.Printer;
 import se.kth.iv1350.seminar4.modell.Payment;
 import se.kth.iv1350.seminar4.modell.Receipt;
 import se.kth.iv1350.seminar4.modell.Sale;
-import se.kth.iv1350.seminar4.integration.DatabaseServerNotRunningException;
-import se.kth.iv1350.seminar4.integration.NoSuchItemFoundException;
-import se.kth.iv1350.seminar4.modell.SaleObserver;
 import se.kth.iv1350.seminar4.modell.SaleLog;
-import java.util.ArrayList;
-
-
-
-import java.sql.SQLException;
+import se.kth.iv1350.seminar4.modell.SaleObserver;
 import se.kth.iv1350.seminar4.util.ErrorLogger;
 import se.kth.iv1350.seminar4.util.Logger;
 
@@ -124,24 +121,12 @@ public class Controller {
         Payment payment = new Payment(amountPaid, TotalPriceAfterDiscountApplied, paymentMethod);
         Receipt receipt = new Receipt(payment, sale);
         printer.print(receipt);
-        updateExternalSystems(saleDTO);
     } 
 
     public double requestDiscount(int customerId) {
         saleDTO = new SaleDTO(sale);
         double totalPrice = sale.getCurrentTotalPrice();
         return discountReg.fetchDiscountFromRegister(customerId, saleDTO, totalPrice);
-    }
-
-
-
-     /**
-     * Updates external systems with the details of the current sale.
-     * Sends sale information to the inventory and accounting systems for processing.
-     */
-    private void updateExternalSystems(SaleDTO saleDTO) {
-        invSys.sendSaleInfo(saleDTO);
-        accSys.sendSaleInfo(saleDTO);
     }
 
     /**

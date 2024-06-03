@@ -1,14 +1,10 @@
 package se.kth.iv1350.seminar4.integration;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import se.kth.iv1350.seminar4.dto.ItemDTO;
-import se.kth.iv1350.seminar4.dto.SaleDTO;
 import java.sql.SQLException;
-
-
+import java.util.ArrayList;
+import java.util.List;
+import se.kth.iv1350.seminar4.dto.ItemDTO;
+import se.kth.iv1350.seminar4.modell.Sale;;
 
 /**
  * This class represents the external inventory system.
@@ -22,7 +18,7 @@ public class InventorySystem {
      * Creates an instance of the InventorySystem.
      * Initializes the inventory with a predefined set of items.
      */
-    public InventorySystem(){
+    public InventorySystem() {
         this.items = new ArrayList<>();
         addItemsToStore();
     }
@@ -41,73 +37,37 @@ public class InventorySystem {
         items.add(new ItemDTO("Butter", 8, 67.5, 0.12, 60));
         items.add(new ItemDTO("Cheese", 9, 53.49, 0.12, 40));
         items.add(new ItemDTO("Yogurt", 10, 35.99, 0.07, 90));
-        items.add(new ItemDTO("Onion", 10, 9.99, 0.07, 90));
-        items.add(new ItemDTO("Potatis", 10, 11.99, 0.07, 90));
+        items.add(new ItemDTO("Onion", 11, 9.99, 0.07, 90));
+        items.add(new ItemDTO("Potato", 12, 11.99, 0.07, 90));
     }
-    
 
-  /**
+    /**
      * Fetches item information based on the item ID.
-     * 
+     * Throws SQLException for item ID 10 to simulate a database issue.
+     *
      * @param itemID The ID of the item to fetch.
      * @return The ItemDTO if found, otherwise null.
+     * @throws SQLException if itemID is X, simulating a database failure.
      */
-    public ItemDTO fetchIteminfo(int itemID)throws SQLException{
-        for(ItemDTO item : items){
-            if(item.getItemID() == itemID){
+    public ItemDTO fetchIteminfo(int itemID) throws SQLException {
+        if (itemID == 10) {
+            throw new SQLException();
+        }
+
+        for (ItemDTO item : items) {
+            if (item.getItemID() == itemID) {
                 return new ItemDTO(item); // Return a copy to prevent external modification
             }
         }
         return null;
     }
 
-
-
     /**
      * Processes the details of a sale to update the inventory quantities.
      * 
      * @param saleDTO The sale data transfer object containing details of the sale.
      */
-    public void sendSaleInfo(SaleDTO saleDTO) {
-        updateInventoryBasedOnSale(saleDTO);
+    public void sendSaleInfo(Sale saleDTO) {
+               
     }
-
-    /**
-     * Updates the inventory quantities based on the sale details.
-     * 
-     * @param saleDTO The sale data transfer object containing details of the sale.
-     */
-    private void updateInventoryBasedOnSale(SaleDTO saleDTO) {
-        Map<Integer, Integer> itemCounts = new HashMap<>();
-        for (ItemDTO item : saleDTO.getTheListOfPurchasedItems()) {
-            int itemID = item.getItemID();
-            itemCounts.put(itemID, itemCounts.getOrDefault(itemID, 0) + item.getQuantity());
-        }
-        decreaseInventoryQuantities(itemCounts);
-    }
- /**
-     * Decreases the inventory quantities for each item based on the sale.
-     * 
-     * @param itemCounts A map containing item IDs and their respective quantities to be decremented.
-     */
-    private void decreaseInventoryQuantities(Map<Integer, Integer> itemCounts) {
-        System.out.println("-------------------Updating External Inventory System------------------------");
-        for (Map.Entry<Integer, Integer> entry : itemCounts.entrySet()) {
-            int itemID = entry.getKey();
-            int quantityToDecrease = entry.getValue();
-            ItemDTO item = fetchIteminfo(itemID);
-            if (item != null) {
-                item.decreaseQuantity(quantityToDecrease);
-                System.out.println("Decreased inventory quantity of item with ID " + itemID + " by " + quantityToDecrease + " units.");
-            }
-        }
-    }
-    /**
-     * Provides a safe read-only list of all inventory items.
-     * 
-     * @return A list of ItemDTO objects representing the inventory.
-     */
-    public List<ItemDTO> getItemList() {
-        return new ArrayList<>(items);
-    }
-}  
+}
