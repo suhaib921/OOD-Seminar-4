@@ -74,6 +74,8 @@ public class SaleDTO {
     /**
      * Prints the details of the items in the snapshot of purchased items.
      */
+
+    /*
     public void printPurchasedItems() {
         System.out.println("Snapshot of purchased items:");
         for (ItemDTO item : snapshotOfPurchasedItems) {
@@ -84,5 +86,7 @@ public class SaleDTO {
                                ", Total price: " + (item.getItemPrice() * item.getQuantity()));
         }
     }
+
+    */
 }
 

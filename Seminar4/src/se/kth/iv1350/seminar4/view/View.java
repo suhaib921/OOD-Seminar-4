@@ -71,14 +71,16 @@ public class View {
 
         
         
-            System.out.println("Starting a new sale...");
+           // System.out.println("Starting a new sale...");
             contr.startSale();
 
             
 
-            System.out.println("Adding items to the sale...");
+            //System.out.println("Adding items to the sale...");
             chooseItem(5, 2);
             chooseItem(8,5);
+            chooseItem(13,5);
+
     
            // chooseItem(12,4);
 
@@ -93,11 +95,14 @@ public class View {
             contr.requestDiscount(customerId);
             
            
-            
             // Process payment
-            contr.pay(200, totalPrice, "Cash");
-            System.out.println("Payment of " + df.format(200) + " received. Change given: " 
-                               + df.format(200 - totalPrice));
+            contr.pay(500, totalPrice, "Cash");
+            System.out.println("Payment of " + df.format(500) + " received. Change given: " 
+                               + df.format(500-contr.requestDiscount(customerId)));
+
+
+            System.out.println("\nInventory system has been updated\n");
+            System.out.println("Accounting system has been updated\n");
          
        
     }

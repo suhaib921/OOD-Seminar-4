@@ -11,6 +11,7 @@ import se.kth.iv1350.seminar4.dto.ItemDTO;
 public class Sale {
     private ArrayList<ItemDTO> purchased;
     private double runningCurrentTotalPrice;
+    private double discountCurrentTotalPrice;
     private final int saleID;
     private boolean customerRequestsDiscount;
     private int customerId;
@@ -35,7 +36,7 @@ public class Sale {
 
     /**
      * Finds an item in the sale based on the item ID.
-     * Increases the quantity of the item if it is found.
+     * Increadoubleses the quantity of the item if it is found.
      *
      * @param itemID The ID of the item to find.
      * @return The found ItemDTO, or null if not found.
@@ -59,7 +60,7 @@ public class Sale {
         increaseItemQuantity(itemDTO, quantity);
 
         // Print the purchased items list
-        printPurchasedItems();
+       
     }
 
     /**
@@ -83,8 +84,9 @@ public class Sale {
     }
 
     public double applyDiscount(double discountAmount) {
-        runningCurrentTotalPrice -= discountAmount;
-        return runningCurrentTotalPrice;
+
+        discountCurrentTotalPrice = runningCurrentTotalPrice- discountAmount;
+        return discountCurrentTotalPrice;
     }
 
     /**
@@ -112,6 +114,8 @@ public class Sale {
     /**
      * Prints the details of the items in the purchased list.
      */
+
+    /*
     private void printPurchasedItems() {
         System.out.println("Purchased items:");
         for (ItemDTO item : purchased) {
@@ -122,4 +126,5 @@ public class Sale {
                                ", Total price: " + (item.getItemPrice() * item.getQuantity()));
         }
     }
+    */
 }

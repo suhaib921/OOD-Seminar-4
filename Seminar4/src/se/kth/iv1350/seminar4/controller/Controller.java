@@ -133,8 +133,8 @@ public class Controller {
     } 
 
     public double requestDiscount(int customerId) {
-        double discount = discountReg.fetchDiscountFromRegister(customerId, saleDTO, currentTotalPriceBeforeDiscount);
-        System.out.println("Discount2: " + discount);
+       // discountReg.fetchDiscountFromRegister(customerId, saleDTO, currentTotalPriceBeforeDiscount);
+        double discount= sale.applyDiscount(23);
         return discount;
 
     }
