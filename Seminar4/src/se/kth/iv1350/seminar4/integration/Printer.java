@@ -22,7 +22,13 @@ public class Printer {
      * @return A string representing the formatted receipt.
      */
      
-    public String print(Receipt receipt) {
-        return receipt.receiptPaperFormat();
-    }        
+   /*public String print(Receipt receipt) {
+        
+        return receipt.receiptPaperFormat(); 
+    }*/ 
+    
+    public void print(Receipt receipt) {
+        System.out.println(receipt.receiptPaperFormat());
+    } 
+      
 }

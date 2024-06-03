@@ -37,6 +37,9 @@ public class Controller {
     private Logger logger;
     private SaleLog saleLog;
     private ArrayList<SaleObserver> saleObservers = new ArrayList<>();
+    
+ 
+    private double currentTotalPriceBeforeDiscount;
 
     
 
@@ -55,7 +58,7 @@ public class Controller {
         invSys = new InventorySystem();
         printer = new Printer();
         logger = new ErrorLogger();
-        //saleLog= new 
+        saleLog= new SaleLog(invSys, accSys);
     }
 
     /**
@@ -63,6 +66,8 @@ public class Controller {
      */
     public void startSale() {
         sale = new Sale();
+        saleDTO = new SaleDTO(sale);  // Ensure this line is correct
+
     }
     
      /**
@@ -84,16 +89,20 @@ public class Controller {
         }
         try {
             itemDTO = invSys.fetchIteminfo(itemID);
-            if (itemDTO == null) {
-                throw new NoSuchItemFoundException("ERROR: Invalid item ID: " + itemID);
-            }
             sale.addItem(itemDTO, quantity);
+            
             return itemDTO;
+
+        //  System.out.println(sale.getPurchasedItems(););
+            
+       
         } 
         catch(SQLException exc){ 
+            System.out.println(" print print ");
             logger.logError("Access to database server for inventory failed while searching for item: " + itemID, exc);
             throw new DatabaseServerNotRunningException("ERROR: Connection to the inventory server has failed");
         }
+        
         
     }
 
@@ -103,8 +112,8 @@ public class Controller {
      * @return The calculated total price including tax.
      */
     public double endSale() {
-        double currentTotalPrice = sale.getCurrentTotalPrice();
-        return currentTotalPrice;
+        currentTotalPriceBeforeDiscount = sale.getCurrentTotalPrice();
+        return currentTotalPriceBeforeDiscount;
     }
 
      /**
@@ -115,20 +124,23 @@ public class Controller {
      * @param paymentMethod the method used for payment
      */
     public void pay(double amountPaid, double discount, String paymentMethod) {
-        
-        double TotalPriceAfterDiscountApplied = sale.getCurrentTotalPrice() - discount;
-        
-        Payment payment = new Payment(amountPaid, TotalPriceAfterDiscountApplied, paymentMethod);
+                
+        Payment payment = new Payment(amountPaid, currentTotalPriceBeforeDiscount - discount, paymentMethod);
         Receipt receipt = new Receipt(payment, sale);
         printer.print(receipt);
+
+       
     } 
 
     public double requestDiscount(int customerId) {
-        saleDTO = new SaleDTO(sale);
-        double totalPrice = sale.getCurrentTotalPrice();
-        return discountReg.fetchDiscountFromRegister(customerId, saleDTO, totalPrice);
+        double discount = discountReg.fetchDiscountFromRegister(customerId, saleDTO, currentTotalPriceBeforeDiscount);
+        System.out.println("Discount2: " + discount);
+        return discount;
+
     }
 
+ 
+    
     /**
      * Passes a <code>SaleObserver</code> through addObserver method of saleLog 
      * @param observer the observer that gets added

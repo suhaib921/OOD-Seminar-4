@@ -14,8 +14,8 @@ import se.kth.iv1350.seminar4.view.View;
         View view =new View(contr);
 
         view.runFakeExecution();
-        view.runFakeExecution();
-        view.runFakeExecution();
+      //view.runFakeExecution();
+      //view.runFakeExecution();
 
     }
 }

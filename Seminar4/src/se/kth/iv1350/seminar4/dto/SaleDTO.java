@@ -70,4 +70,19 @@ public class SaleDTO {
     public int getSaleDTOID() {
         return saleDTOID;
     }
+
+    /**
+     * Prints the details of the items in the snapshot of purchased items.
+     */
+    public void printPurchasedItems() {
+        System.out.println("Snapshot of purchased items:");
+        for (ItemDTO item : snapshotOfPurchasedItems) {
+            System.out.println("Item ID: " + item.getItemID() +
+                               ", Name: " + item.getItemName() +
+                               ", Quantity: " + item.getQuantity() +
+                               ", Price per unit: " + item.getItemPrice() +
+                               ", Total price: " + (item.getItemPrice() * item.getQuantity()));
+        }
+    }
 }
+

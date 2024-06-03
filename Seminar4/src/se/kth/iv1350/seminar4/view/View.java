@@ -11,7 +11,11 @@ import se.kth.iv1350.seminar4.integration.NoSuchItemFoundException;
  */
 public class View {
     private Controller contr;
+
     private static final DecimalFormat df = new DecimalFormat("0.00");
+
+
+    
 
     public View(Controller contr){
         this.contr = contr;
@@ -23,10 +27,10 @@ public class View {
      * Simulates a presentation of an item that 
      * @param foundItem The item that has been added to the sale.
      */
-    private void presentItem(ItemDTO foundItem) {
+    private void presentItem(ItemDTO foundItem, int quantity) {
         
             System.out.println("Added item: " + foundItem.getItemName() + ", quantity: " 
-                               + foundItem.getQuantity() + ", Price per unit: " + df.format(foundItem.getItemPrice()));
+                               + quantity + ", Price per unit: " + df.format(foundItem.getItemPrice()) );
     
     }
 
@@ -41,11 +45,8 @@ public class View {
     private void chooseItem(int itemId, int quantity) {
         try {
              // Simulate adding items
-            System.out.println("Adding items to the sale...");
             ItemDTO foundItem = contr.scanItem(itemId, quantity);
-            System.out.println("Item has been found: "+  foundItem);
-            presentItem(foundItem);
-            System.out.println();
+            presentItem(foundItem, quantity);
         }
         
         catch(NoSuchItemFoundException exc){
@@ -66,40 +67,38 @@ public class View {
      * Simulates user adding items, requesting discounts, and making a payment.
      */
     public void runFakeExecution() {
+
+
+        
         
             System.out.println("Starting a new sale...");
             contr.startSale();
 
+            
 
+            System.out.println("Adding items to the sale...");
             chooseItem(5, 2);
             chooseItem(8,5);
-            chooseItem(3,3);
-            chooseItem(3,3);
-            chooseItem(6,2);
-            chooseItem(2,1);
-            chooseItem(1,3);
-            chooseItem(4,3);
-            chooseItem(1,3);
-            chooseItem(12,4);
+    
+           // chooseItem(12,4);
 
 
             // End the sale and show total
             double totalPrice = contr.endSale();
-            System.out.println("Sale ended.\n Total price: " + df.format(totalPrice));
+            System.out.println("Sale ended.\n Total price(Inc Vat): " + df.format(totalPrice));
 
             // Simulate discount request
             boolean customerRequestsDiscount = true; // Simulated flag for requesting a discount
             int customerId = 1111; // Simulated customer ID
-            if (customerRequestsDiscount) {
-                double discount = contr.requestDiscount(customerId);
-                System.out.println("Applied discount: " + df.format(discount));
-                totalPrice -= discount; // Apply discount
-            }
-
+            contr.requestDiscount(customerId);
+            
+           
+            
             // Process payment
             contr.pay(200, totalPrice, "Cash");
             System.out.println("Payment of " + df.format(200) + " received. Change given: " 
                                + df.format(200 - totalPrice));
+         
        
     }
 }

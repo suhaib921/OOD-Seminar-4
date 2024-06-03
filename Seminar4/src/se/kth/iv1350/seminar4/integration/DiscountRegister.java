@@ -82,6 +82,8 @@ public class DiscountRegister {
      */
     private double applyItemSpecificDiscounts(SaleDTO saleDTO) {
         double totalItemDiscount = 0.0;
+        System.out.println(" ItemsXXXXXXXXXXXXXX " );
+
         List<ItemDTO> purchasedItems = saleDTO.getTheListOfPurchasedItems();
         if (purchasedItems != null) {
             for (ItemDTO item : purchasedItems) {
@@ -90,6 +92,7 @@ public class DiscountRegister {
                     double itemDiscount = item.getItemPrice() * item.getQuantity() * (itemDiscountRate / 100.0);
                     totalItemDiscount += itemDiscount;
                 }
+                System.out.println(" ItemsXXXXXXXXXXXXXX " + item);
             }
         }
         return totalItemDiscount;

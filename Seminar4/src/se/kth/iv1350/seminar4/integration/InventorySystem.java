@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import se.kth.iv1350.seminar4.dto.ItemDTO;
-import se.kth.iv1350.seminar4.modell.Sale;;
+import se.kth.iv1350.seminar4.dto.SaleDTO;
 
 /**
  * This class represents the external inventory system.
@@ -49,8 +49,8 @@ public class InventorySystem {
      * @return The ItemDTO if found, otherwise null.
      * @throws SQLException if itemID is X, simulating a database failure.
      */
-    public ItemDTO fetchIteminfo(int itemID) throws SQLException {
-        if (itemID == 10) {
+    public ItemDTO fetchIteminfo(int itemID) throws SQLException, NoSuchItemFoundException {
+        if (itemID == 12) {
             throw new SQLException();
         }
 
@@ -59,7 +59,9 @@ public class InventorySystem {
                 return new ItemDTO(item); // Return a copy to prevent external modification
             }
         }
-        return null;
+
+         // If no item is found and the loop completes, throw the NoSuchItemFoundException
+        throw new NoSuchItemFoundException("ERROR: Invalid item ID: " + itemID);
     }
 
     /**
@@ -67,7 +69,7 @@ public class InventorySystem {
      * 
      * @param saleDTO The sale data transfer object containing details of the sale.
      */
-    public void sendSaleInfo(Sale saleDTO) {
+    public void sendSaleInfo(SaleDTO saleDTO) {
                
     }
 }

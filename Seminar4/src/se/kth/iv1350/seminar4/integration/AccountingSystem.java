@@ -1,6 +1,6 @@
 package se.kth.iv1350.seminar4.integration;
 
-import se.kth.iv1350.seminar4.modell.Sale;
+import se.kth.iv1350.seminar4.dto.SaleDTO;
 /**
  * This class represents the external accounting system. 
  * It is responsible for updating the accounting records with new sales data.
@@ -25,10 +25,8 @@ public class AccountingSystem {
      * @param saleDTO The data transfer object containing details of the sale which includes items sold,
      *                total cost, and other relevant sale information.
      */
-    public void sendSaleInfo(Sale saleDTO) {
-        // Simulation of sending the sale information to an external accounting system
-        System.out.println("\n-------------------Updating Accounting System------------------------");
-        System.out.println("Sent sale information to Accounting System for accounting");
+    public void sendSaleInfo(SaleDTO saleDTO) {
+    
     }
     
 }
