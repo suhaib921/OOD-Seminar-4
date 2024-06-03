@@ -77,9 +77,13 @@ public class View {
             
 
             //System.out.println("Adding items to the sale...");
-            chooseItem(5, 2);
-            chooseItem(8,5);
-            chooseItem(13,5);
+            chooseItem(1, 2);
+            chooseItem(2,5);
+            chooseItem(3,5);
+            chooseItem(5,5);
+
+            chooseItem(12,5); // Simulates a itemNotfound failure
+            chooseItem(13,5); // Simulates a database failure
 
     
            // chooseItem(12,4);

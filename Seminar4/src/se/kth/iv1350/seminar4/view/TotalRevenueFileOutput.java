@@ -1,11 +1,10 @@
 package se.kth.iv1350.seminar4.view;
 
-import se.kth.iv1350.seminar4.modell.SaleObserver;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
+import se.kth.iv1350.seminar4.modell.SaleObserver;
 
 /**
  * Outputs the total revenue to a file.
@@ -21,7 +20,7 @@ public class TotalRevenueFileOutput implements SaleObserver {
      */
     public TotalRevenueFileOutput() {
         try {
-            file = new PrintWriter(new FileWriter(REVENUE_FILE), true);
+            file = new PrintWriter(new FileWriter(REVENUE_FILE, true)); // Enable append mode
         } catch (IOException excp) {
             System.err.println("Error: Cannot create log file.");
             excp.printStackTrace();
@@ -34,17 +33,17 @@ public class TotalRevenueFileOutput implements SaleObserver {
      * @param recentTotalPrice The total price of the recent sale.
      * @param totalRevenue The cumulative total revenue pf all sales since program started.
      */
+
     @Override
     public void totalRevenue(double recentTotalPrice, double totalRevenue) {
-         String logEntry = String.format("Sale number %d: Total price of the sale number = %s, Current Total revenue = %s",
-                saleNumber, df.format(recentTotalPrice), df.format(totalRevenue));
-        
-        System.out.println(logEntry);
-        file.println(logEntry);
+        String logEntry = String.format("The total price of sale number %d: %s\nThe total revenue currently: %s",
+                                        saleNumber, df.format(recentTotalPrice), df.format(totalRevenue));
+        System.out.println(logEntry);  // Output to console
+        file.println(logEntry);  // Write to file
+        file.flush();  // Ensure data is immediately written to file
         saleNumber++;
     }
-
-      /**
+    /**
      * Closes the PrintWriter to release resources.
      */
     public void close() {

@@ -7,6 +7,12 @@ javac /home/suhkth/Documents/javaOOP/OOD-Seminar-4/Seminar4/src/se/kth/iv1350/se
 java -cp /home/suhkth/Documents/javaOOP/OOD-Seminar-4/Seminar4/src se.kth.iv1350.seminar4.startup.Main
 
 
+total_revenue: 
+The total price of sale number 1: 92,96
+The total revenue currently: 92,96
+
+
+
 ## Short explanation about Exception
 
 In object-oriented programming, exceptions are categorized into various types to handle different kinds of errors and exceptional conditions. The book "A First Course in Object-Oriented Development" categorizes exceptions into three main types:

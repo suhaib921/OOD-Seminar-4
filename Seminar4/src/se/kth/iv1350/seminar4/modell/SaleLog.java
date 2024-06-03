@@ -36,10 +36,16 @@ public class SaleLog {
      * @param saleDTO the SaleDTO object giving access to all available information about the sale.
      */
      public void logCompletedSale(SaleDTO saleDTO) {
+        System.out.println("acavs");  // Debug print
+
         saleLog.add(saleDTO);
         totalRevenue += saleDTO.getTheCurrentTotalPrice();
+        System.out.println("Lacasfca");  // Debug print
+
         recentSale = saleDTO;
-        notifyObservers();
+        System.out.println("Logging sale. Total revenue now: " + totalRevenue);  // Debug print
+
+        notifyObservers(); // Ensure this is getting called
         updateExternalSystems();
     }
 
@@ -49,17 +55,23 @@ public class SaleLog {
      * @param obs the observer to be added
      */
     public void addObserver(SaleObserver obs) {
-     
+        System.out.println("NHJJHVArver ");
+
         saleObservers.add(obs);
     }
 
     /**
      * Notifies observers about the total revenue.
      */
-   private void notifyObservers() {
-       
+   public void notifyObservers() {
+    System.out.println("Notifying observer ");
+    if (recentSale == null) {
+        System.out.println("Recent sale is null, cannot notify observers.");  // Debug print
+        return;
+    }
+
         for (SaleObserver observer : saleObservers) {
-           
+            System.out.println("Notifying observer "+ observer);
             observer.totalRevenue(recentSale.getTheCurrentTotalPrice(), totalRevenue);
         }
     }

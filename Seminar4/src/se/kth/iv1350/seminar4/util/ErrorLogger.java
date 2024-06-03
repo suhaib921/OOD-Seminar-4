@@ -37,6 +37,8 @@ public class ErrorLogger implements Logger {
         logStream.println("The Stack Trace:");
         exc.printStackTrace(logStream);
         logStream.println();
+        logStream.flush(); // Ensure data is written to the file.
     }
+    
         
 }

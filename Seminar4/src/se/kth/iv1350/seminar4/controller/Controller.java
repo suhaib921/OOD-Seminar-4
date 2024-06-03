@@ -15,7 +15,6 @@ import se.kth.iv1350.seminar4.modell.Receipt;
 import se.kth.iv1350.seminar4.modell.Sale;
 import se.kth.iv1350.seminar4.modell.SaleLog;
 import se.kth.iv1350.seminar4.modell.SaleObserver;
-import se.kth.iv1350.seminar4.util.ErrorLogger;
 import se.kth.iv1350.seminar4.util.Logger;
 
 
@@ -52,12 +51,12 @@ public class Controller {
     /**
      * Creates a new instance, initializing all external system handlers and the logger.
      */
-    public Controller() {
+    public Controller(Logger loggerHandler) {
         accSys = new AccountingSystem();
         discountReg = new DiscountRegister();
         invSys = new InventorySystem();
         printer = new Printer();
-        logger = new ErrorLogger();
+        this.logger = loggerHandler;
         saleLog= new SaleLog(invSys, accSys);
     }
 
@@ -66,7 +65,6 @@ public class Controller {
      */
     public void startSale() {
         sale = new Sale();
-        saleDTO = new SaleDTO(sale);  // Ensure this line is correct
 
     }
     
@@ -98,7 +96,7 @@ public class Controller {
        
         } 
         catch(SQLException exc){ 
-            System.out.println(" print print ");
+          
             logger.logError("Access to database server for inventory failed while searching for item: " + itemID, exc);
             throw new DatabaseServerNotRunningException("ERROR: Connection to the inventory server has failed");
         }
