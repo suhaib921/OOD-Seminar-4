@@ -93,10 +93,7 @@ public class Controller {
 }
             sale.addItem(itemDTO, quantity);
             
-            return itemDTO;
-
-        //  System.out.println(sale.getPurchasedItems(););
-            
+            return itemDTO;           
        
         } 
         catch(SQLException exc){ 
@@ -114,6 +111,7 @@ public class Controller {
      * @return The calculated total price including tax.
      */
     public double endSale() {
+        saleDTO = new SaleDTO(sale);
         currentTotalPriceBeforeDiscount = sale.getCurrentTotalPrice();
         return currentTotalPriceBeforeDiscount;
     }
@@ -129,6 +127,8 @@ public class Controller {
                 
         Payment payment = new Payment(amountPaid, currentTotalPriceBeforeDiscount - discount, paymentMethod);
         Receipt receipt = new Receipt(payment, sale);
+        saleLog.logCompletedSale(sale);
+
         printer.print(receipt);
 
        
@@ -136,6 +136,8 @@ public class Controller {
 
     public double requestDiscount(int customerId) {
        // discountReg.fetchDiscountFromRegister(customerId, saleDTO, currentTotalPriceBeforeDiscount);
+      // System.out.println(".()"+ saleDTO.getTheCurrentTotalPrice());
+
         double discount= sale.applyDiscount(23);
         return discount;
 

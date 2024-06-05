@@ -51,7 +51,7 @@ public class View {
         
         catch(NoSuchItemFoundException exc){
            
-            System.out.println("Invalid item identifier: " + itemId);
+            System.out.println("\n Invalid item identifier: " + itemId);
             System.out.println();
         }
         
@@ -78,12 +78,14 @@ public class View {
 
             System.out.println("Adding items to the sale...\n");
             chooseItem(1, 2);
+            chooseItem(13,5);
+
             chooseItem(2,5);
             chooseItem(3,5);
+            chooseItem(4,5);
             chooseItem(5,5);
 
             chooseItem(12,5); 
-            chooseItem(13,5);
 
     
            // chooseItem(12,4);
@@ -91,7 +93,7 @@ public class View {
 
             // End the sale and show total
             double totalPrice = contr.endSale();
-            System.out.println("Sale ended.\n Total price(Inc Vat): " + df.format(totalPrice));
+            System.out.println("Sale ended.\n Total price(Inc VAT): " + df.format(totalPrice));
 
             // Simulate discount request
             boolean customerRequestsDiscount = true; // Simulated flag for requesting a discount

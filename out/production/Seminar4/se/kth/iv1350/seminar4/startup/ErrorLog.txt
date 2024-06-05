@@ -1,0 +1,162 @@
+Access to database server for inventory failed while searching for item: 12
+The Stack Trace:
+java.sql.SQLException
+	at se.kth.iv1350.seminar4.integration.InventorySystem.fetchIteminfo(InventorySystem.java:54)
+	at se.kth.iv1350.seminar4.controller.Controller.scanItem(Controller.java:88)
+	at se.kth.iv1350.seminar4.view.View.chooseItem(View.java:48)
+	at se.kth.iv1350.seminar4.view.View.runFakeExecution(View.java:87)
+	at se.kth.iv1350.seminar4.startup.Main.main(Main.java:17)
+
+Access to database server for inventory failed while searching for item: 12
+The Stack Trace:
+java.sql.SQLException
+	at se.kth.iv1350.seminar4.integration.InventorySystem.fetchIteminfo(InventorySystem.java:54)
+	at se.kth.iv1350.seminar4.controller.Controller.scanItem(Controller.java:88)
+	at se.kth.iv1350.seminar4.view.View.chooseItem(View.java:48)
+	at se.kth.iv1350.seminar4.view.View.runFakeExecution(View.java:87)
+	at se.kth.iv1350.seminar4.startup.Main.main(Main.java:17)
+
+Access to database server for inventory failed while searching for item: 12
+The Stack Trace:
+java.sql.SQLException
+	at se.kth.iv1350.seminar4.integration.InventorySystem.fetchIteminfo(InventorySystem.java:54)
+	at se.kth.iv1350.seminar4.controller.Controller.scanItem(Controller.java:88)
+	at se.kth.iv1350.seminar4.view.View.chooseItem(View.java:48)
+	at se.kth.iv1350.seminar4.view.View.runFakeExecution(View.java:87)
+	at se.kth.iv1350.seminar4.startup.Main.main(Main.java:17)
+
+Access to database server for inventory failed while searching for item: 12
+The Stack Trace:
+java.sql.SQLException
+	at se.kth.iv1350.seminar4.integration.InventorySystem.fetchIteminfo(InventorySystem.java:54)
+	at se.kth.iv1350.seminar4.controller.Controller.scanItem(Controller.java:88)
+	at se.kth.iv1350.seminar4.view.View.chooseItem(View.java:48)
+	at se.kth.iv1350.seminar4.view.View.runFakeExecution(View.java:87)
+	at se.kth.iv1350.seminar4.startup.Main.main(Main.java:17)
+
+Access to database server for inventory failed while searching for item: 12
+The Stack Trace:
+java.sql.SQLException
+	at se.kth.iv1350.seminar4.integration.InventorySystem.fetchIteminfo(InventorySystem.java:54)
+	at se.kth.iv1350.seminar4.controller.Controller.scanItem(Controller.java:89)
+	at se.kth.iv1350.seminar4.view.View.chooseItem(View.java:48)
+	at se.kth.iv1350.seminar4.view.View.runFakeExecution(View.java:87)
+	at se.kth.iv1350.seminar4.startup.Main.main(Main.java:17)
+
+Access to database server for inventory failed while searching for item: 12
+The Stack Trace:
+java.sql.SQLException
+	at se.kth.iv1350.seminar4.integration.InventorySystem.fetchIteminfo(InventorySystem.java:54)
+	at se.kth.iv1350.seminar4.controller.Controller.scanItem(Controller.java:89)
+	at se.kth.iv1350.seminar4.view.View.chooseItem(View.java:48)
+	at se.kth.iv1350.seminar4.view.View.runFakeExecution(View.java:87)
+	at se.kth.iv1350.seminar4.startup.Main.main(Main.java:17)
+
+Access to database server for inventory failed while searching for item: 12
+The Stack Trace:
+java.sql.SQLException
+	at se.kth.iv1350.seminar4.integration.InventorySystem.fetchIteminfo(InventorySystem.java:54)
+	at se.kth.iv1350.seminar4.controller.Controller.scanItem(Controller.java:89)
+	at se.kth.iv1350.seminar4.view.View.chooseItem(View.java:48)
+	at se.kth.iv1350.seminar4.view.View.runFakeExecution(View.java:87)
+	at se.kth.iv1350.seminar4.startup.Main.main(Main.java:17)
+
+Access to database server for inventory failed while searching for item: 12
+The Stack Trace:
+java.sql.SQLException
+	at se.kth.iv1350.seminar4.integration.InventorySystem.fetchIteminfo(InventorySystem.java:54)
+	at se.kth.iv1350.seminar4.controller.Controller.scanItem(Controller.java:89)
+	at se.kth.iv1350.seminar4.view.View.chooseItem(View.java:48)
+	at se.kth.iv1350.seminar4.view.View.runFakeExecution(View.java:87)
+	at se.kth.iv1350.seminar4.startup.Main.main(Main.java:17)
+
+Access to database server for inventory failed while searching for item: 12
+The Stack Trace:
+java.sql.SQLException
+	at se.kth.iv1350.seminar4.integration.InventorySystem.fetchIteminfo(InventorySystem.java:54)
+	at se.kth.iv1350.seminar4.controller.Controller.scanItem(Controller.java:89)
+	at se.kth.iv1350.seminar4.view.View.chooseItem(View.java:48)
+	at se.kth.iv1350.seminar4.view.View.runFakeExecution(View.java:87)
+	at se.kth.iv1350.seminar4.startup.Main.main(Main.java:17)
+
+Access to database server for inventory failed while searching for item: 12
+The Stack Trace:
+java.sql.SQLException
+	at se.kth.iv1350.seminar4.integration.InventorySystem.fetchIteminfo(InventorySystem.java:54)
+	at se.kth.iv1350.seminar4.controller.Controller.scanItem(Controller.java:89)
+	at se.kth.iv1350.seminar4.view.View.chooseItem(View.java:48)
+	at se.kth.iv1350.seminar4.view.View.runFakeExecution(View.java:87)
+	at se.kth.iv1350.seminar4.startup.Main.main(Main.java:17)
+
+Access to database server for inventory failed while searching for item: 12
+The Stack Trace:
+java.sql.SQLException
+	at se.kth.iv1350.seminar4.integration.InventorySystem.fetchIteminfo(InventorySystem.java:54)
+	at se.kth.iv1350.seminar4.controller.Controller.scanItem(Controller.java:89)
+	at se.kth.iv1350.seminar4.view.View.chooseItem(View.java:48)
+	at se.kth.iv1350.seminar4.view.View.runFakeExecution(View.java:87)
+	at se.kth.iv1350.seminar4.startup.Main.main(Main.java:17)
+
+Access to database server for inventory failed while searching for item: 12
+The Stack Trace:
+java.sql.SQLException
+	at se.kth.iv1350.seminar4.integration.InventorySystem.fetchIteminfo(InventorySystem.java:54)
+	at se.kth.iv1350.seminar4.controller.Controller.scanItem(Controller.java:89)
+	at se.kth.iv1350.seminar4.view.View.chooseItem(View.java:48)
+	at se.kth.iv1350.seminar4.view.View.runFakeExecution(View.java:87)
+	at se.kth.iv1350.seminar4.startup.Main.main(Main.java:17)
+
+Access to database server for inventory failed while searching for item: 12
+The Stack Trace:
+java.sql.SQLException
+	at se.kth.iv1350.seminar4.integration.InventorySystem.fetchIteminfo(InventorySystem.java:54)
+	at se.kth.iv1350.seminar4.controller.Controller.scanItem(Controller.java:89)
+	at se.kth.iv1350.seminar4.view.View.chooseItem(View.java:48)
+	at se.kth.iv1350.seminar4.view.View.runFakeExecution(View.java:87)
+	at se.kth.iv1350.seminar4.startup.Main.main(Main.java:17)
+
+Access to database server for inventory failed while searching for item: 12
+The Stack Trace:
+java.sql.SQLException
+	at se.kth.iv1350.seminar4.integration.InventorySystem.fetchIteminfo(InventorySystem.java:54)
+	at se.kth.iv1350.seminar4.controller.Controller.scanItem(Controller.java:89)
+	at se.kth.iv1350.seminar4.view.View.chooseItem(View.java:48)
+	at se.kth.iv1350.seminar4.view.View.runFakeExecution(View.java:87)
+	at se.kth.iv1350.seminar4.startup.Main.main(Main.java:17)
+
+Access to database server for inventory failed while searching for item: 12
+The Stack Trace:
+java.sql.SQLException
+	at se.kth.iv1350.seminar4.integration.InventorySystem.fetchIteminfo(InventorySystem.java:54)
+	at se.kth.iv1350.seminar4.controller.Controller.scanItem(Controller.java:89)
+	at se.kth.iv1350.seminar4.view.View.chooseItem(View.java:48)
+	at se.kth.iv1350.seminar4.view.View.runFakeExecution(View.java:87)
+	at se.kth.iv1350.seminar4.startup.Main.main(Main.java:17)
+
+Access to database server for inventory failed while searching for item: 12
+The Stack Trace:
+java.sql.SQLException
+	at se.kth.iv1350.seminar4.integration.InventorySystem.fetchIteminfo(InventorySystem.java:54)
+	at se.kth.iv1350.seminar4.controller.Controller.scanItem(Controller.java:89)
+	at se.kth.iv1350.seminar4.view.View.chooseItem(View.java:48)
+	at se.kth.iv1350.seminar4.view.View.runFakeExecution(View.java:87)
+	at se.kth.iv1350.seminar4.startup.Main.main(Main.java:17)
+
+Access to database server for inventory failed while searching for item: 12
+The Stack Trace:
+java.sql.SQLException
+	at se.kth.iv1350.seminar4.integration.InventorySystem.fetchIteminfo(InventorySystem.java:54)
+	at se.kth.iv1350.seminar4.controller.Controller.scanItem(Controller.java:89)
+	at se.kth.iv1350.seminar4.view.View.chooseItem(View.java:48)
+	at se.kth.iv1350.seminar4.view.View.runFakeExecution(View.java:87)
+	at se.kth.iv1350.seminar4.startup.Main.main(Main.java:17)
+
+Access to database server for inventory failed while searching for item: 12
+The Stack Trace:
+java.sql.SQLException
+	at se.kth.iv1350.seminar4.integration.InventorySystem.fetchIteminfo(InventorySystem.java:54)
+	at se.kth.iv1350.seminar4.controller.Controller.scanItem(Controller.java:89)
+	at se.kth.iv1350.seminar4.view.View.chooseItem(View.java:48)
+	at se.kth.iv1350.seminar4.view.View.runFakeExecution(View.java:87)
+	at se.kth.iv1350.seminar4.startup.Main.main(Main.java:17)
+

@@ -1,0 +1,31 @@
+The total price of sale number 1: 152.95
+The total revenue currently: 0.00
+The total price of sale number 1: 152.95
+
+The total price of sale number 1: 152.95
+
+The total price of sale number 1: 152.95
+
+The total price of sale number 1: 152.95
+
+The total price of sale number 1: 152.95
+
+The total price of sale number 1: 152.95
+The total revenue currently: 152.95
+The total price of sale number 1: 152.95
+The total revenue currently: 152.95
+The total price of sale number 1: 152.95
+The total revenue currently: 152.95
+The total price of sale number 1: 152.95
+The total revenue currently: 152.95
+The total price of sale number 1: 152.95
+The total revenue currently: 152.95
+The total price of sale number 1: 152.95
+The total revenue currently: 152.95
+The total price of sale number 1: 152.95
+The total revenue currently: 152.95
+Sale number 1: 152.95, Current Total: 152.95
+Sale number 1: 152.95, Current Total: 152.95
+Sale number 1: 152.95, Current Total: 152.95
+Sale number 1: 152.95, Current Total: 152.95
+Sale number 1: 152.95, Current Total: 152.95

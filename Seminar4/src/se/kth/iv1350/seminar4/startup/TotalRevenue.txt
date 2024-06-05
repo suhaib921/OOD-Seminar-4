@@ -1,0 +1,3 @@
+The total price of sale number 1: 152.95
+The total revenue currently: 152.95
+
