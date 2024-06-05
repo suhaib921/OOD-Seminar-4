@@ -82,9 +82,8 @@ public class View {
 
             chooseItem(2,5);
             chooseItem(3,5);
-            chooseItem(4,6);
-            chooseItem(5,3);
-            chooseItem(6,2);
+            chooseItem(4,5);
+            chooseItem(5,5);
 
             chooseItem(12,5); 
 

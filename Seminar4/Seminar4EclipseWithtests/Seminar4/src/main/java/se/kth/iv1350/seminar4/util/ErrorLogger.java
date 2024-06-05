@@ -10,8 +10,8 @@ import java.io.PrintWriter;
  * The methods implements the logger interface.
  */
 public class ErrorLogger implements Logger {
-    private PrintWriter logStream;
-
+ private PrintWriter logStream;
+    
     /**
      * Initializes a new instance of ErrorLogger.
      * Creates or opens a text file for logging errors.
@@ -25,7 +25,7 @@ public class ErrorLogger implements Logger {
             ioe.printStackTrace();
         }
     }
-
+    
     /**
      * Logs information about the occured error.
      * @param infoAboutError A string that explains the error
@@ -37,8 +37,8 @@ public class ErrorLogger implements Logger {
         logStream.println("The Stack Trace:");
         exc.printStackTrace(logStream);
         logStream.println();
-        logStream.flush(); // Ensure data is written to the file.
+        logStream.flush();
     }
-
-
+    
+        
 }
