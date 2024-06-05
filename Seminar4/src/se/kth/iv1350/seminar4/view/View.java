@@ -56,7 +56,7 @@ public class View {
         }
         
         catch(DatabaseServerNotRunningException exc) {
-            System.out.println("There has been a problem, lost connection to the server");
+            System.out.println("\n There has been a problem, lost connection to the server");
             System.out.println("Could not search for item id: " + itemId + "\n");
            
         }
@@ -71,19 +71,19 @@ public class View {
 
         
         
-           // System.out.println("Starting a new sale...");
+            System.out.println("Starting a new sale...\n");
             contr.startSale();
 
             
 
-            //System.out.println("Adding items to the sale...");
+            System.out.println("Adding items to the sale...\n");
             chooseItem(1, 2);
             chooseItem(2,5);
             chooseItem(3,5);
             chooseItem(5,5);
 
-            chooseItem(12,5); // Simulates a itemNotfound failure
-            chooseItem(13,5); // Simulates a database failure
+            chooseItem(12,5); 
+            chooseItem(13,5);
 
     
            // chooseItem(12,4);

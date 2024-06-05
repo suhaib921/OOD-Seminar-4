@@ -87,6 +87,10 @@ public class Controller {
         }
         try {
             itemDTO = invSys.fetchIteminfo(itemID);
+            if(itemDTO == null){
+                throw new NoSuchItemFoundException("Invalid item identifier: " + itemID); 
+
+}
             sale.addItem(itemDTO, quantity);
             
             return itemDTO;

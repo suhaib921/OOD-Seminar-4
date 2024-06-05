@@ -89,6 +89,10 @@ public class Sale {
         return discountCurrentTotalPrice;
     }
 
+    public double getDiscountedTotalPrice() {
+        return discountCurrentTotalPrice;
+    }
+
     /**
      * Retrieves the list of items purchased.
      * @return List of items.
@@ -111,20 +115,5 @@ public class Sale {
         return runningCurrentTotalPrice;
     }
 
-    /**
-     * Prints the details of the items in the purchased list.
-     */
 
-    /*
-    private void printPurchasedItems() {
-        System.out.println("Purchased items:");
-        for (ItemDTO item : purchased) {
-            System.out.println("Item ID: " + item.getItemID() +
-                               ", Name: " + item.getItemName() +
-                               ", Quantity: " + item.getQuantity() +
-                               ", Price per unit: " + item.getItemPrice() +
-                               ", Total price: " + (item.getItemPrice() * item.getQuantity()));
-        }
-    }
-    */
 }

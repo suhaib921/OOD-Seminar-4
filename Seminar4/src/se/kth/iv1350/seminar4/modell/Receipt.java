@@ -17,8 +17,7 @@ public class Receipt {
     private double amountPaidByCustomer; // The total amount paid by the customer
     private double totalSaleAmount; // The total amount of the sale after any calculations
     private String methodOfPayment; // The payment method used by the customer
-
-    double discountAmount = 23.0;
+/**500
 
     /**
      * Constructs a new Receipt object.
@@ -61,10 +60,10 @@ public class Receipt {
                .append("Time of Sale: ").append(timeOfReceipt.format(dtf)).append("\n")
                .append("Items Purchased:\n").append(formatPurchasedItems(df)).append("\n")
                .append("Total cost (incl VAT): ").append(df.format(sale.getCurrentTotalPrice())).append("\n")
-               .append("Total cost (after  Discount): ").append(df.format(sale.applyDiscount(discountAmount))).append("\n")
+               .append("Total cost (after  Discount): ").append(df.format(sale.getDiscountedTotalPrice())).append("\n")
                .append("Amount Paid: ").append(df.format(amountPaidByCustomer)).append("\n")
                .append("Payment Method: ").append(methodOfPayment).append("\n")
-               .append("Change Given: ").append(df.format(500 - sale.applyDiscount(discountAmount))).append("\n")
+               .append("Change Given: ").append(df.format(500 - sale.getDiscountedTotalPrice())).append("\n")
                .append("--------------------------------\n")
                .append("Tack för besök, Välkommen åter\n")
                .append("Öppet köp 30 dagar\n")

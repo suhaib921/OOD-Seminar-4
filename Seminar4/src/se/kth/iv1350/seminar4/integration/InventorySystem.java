@@ -49,7 +49,7 @@ public class InventorySystem {
      * @return The ItemDTO if found, otherwise null.
      * @throws SQLException if itemID is X, simulating a database failure.
      */
-    public ItemDTO fetchIteminfo(int itemID) throws SQLException, NoSuchItemFoundException {
+    public ItemDTO fetchIteminfo(int itemID) throws SQLException {
         if (itemID == 12) {
             throw new SQLException();
         }
@@ -61,7 +61,9 @@ public class InventorySystem {
         }
 
          // If no item is found and the loop completes, throw the NoSuchItemFoundException
-        throw new NoSuchItemFoundException("ERROR: Invalid item ID: " + itemID);
+        //throw new NoSuchItemFoundException("ERROR: Invalid item ID: " + itemID);
+        return null;
+
     }
 
     /**
